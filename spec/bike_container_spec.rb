@@ -3,15 +3,14 @@ require './lib/bike_container'
 class ContainerHolder; include BikeContainer; end
 
 describe BikeContainer do
+  let(:bike) {double :bike}
+  let(:working_bike) {double :bike, broken?: false}
+  let(:broken_bike) {double :bike, broken?: true}
+   let(:holder) {ContainerHolder.new}
 
-  let(:bike) { Bike.new }
-  let(:holder) { ContainerHolder.new }
- 
   def station_with_two_bikes
-    @working_bike, @broken_bike = Bike.new, Bike.new
-    @broken_bike.break!
-    holder.dock(@working_bike)
-    holder.dock(@broken_bike)
+    holder.dock(working_bike)
+    holder.dock(broken_bike)
   end
 
   it "should accept bikes" do
@@ -29,21 +28,21 @@ describe BikeContainer do
 
   it "should know when it's full" do
     expect(holder).not_to be_full
-    10.times {holder.dock(Bike.new)}
+    10.times {holder.dock(bike)}
     expect(holder).to be_full
   end
 
   it "should not accept a bike if it's full" do
-    10.times { holder.dock(Bike.new) }
+    10.times { holder.dock(bike) }
     expect(lambda { holder.dock(bike) }).to raise_error(RuntimeError, 'Station is full')
   end
 
   it "should provide a list of available bikes" do
     station_with_two_bikes
-    expect(holder.available_bikes).to eq([@working_bike])
+    expect(holder.available_bikes).to eq([working_bike])
   end
   it "should provide a list of broken bikes" do
     station_with_two_bikes
-    expect(holder.broken_bikes).to eq([@broken_bike])
+    expect(holder.broken_bikes).to eq([broken_bike])
   end
 end
