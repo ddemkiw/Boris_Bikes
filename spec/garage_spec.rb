@@ -16,7 +16,7 @@ describe Garage do
 
   it "should fix broken bikes" do
     expect(broken_bike).to receive(:fix!)
-    garage.accept(broken_bike)
+    garage.dock(broken_bike)
     
   end  
 

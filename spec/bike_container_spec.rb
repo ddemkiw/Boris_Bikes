@@ -7,6 +7,7 @@ describe BikeContainer do
   let(:bike) {double :bike, is_a?: Bike}
   let(:working_bike) {double :bike, broken?: false, is_a?: Bike}
   let(:broken_bike) {double :bike, broken?: true, is_a?: Bike}
+  let(:garage) {double :garage, available_bikes: [working_bike]}
   let(:holder) { ContainerHolder.new }
  
   def station_with_two_bikes
@@ -49,7 +50,7 @@ describe BikeContainer do
 
   it "should not accept a bike if it's full" do
     10.times { holder.dock(Bike.new) }
-    expect(lambda { holder.dock(bike) }).to raise_error(RuntimeError, 'Station is full')
+    expect(lambda { holder.dock(bike) }).to raise_error(RuntimeError, 'Sorry! No more room for bikes')
   end
 
   it "should provide a list of available bikes" do
@@ -63,8 +64,8 @@ describe BikeContainer do
 
   it "should be able to transfer to another container" do 
     allow(garage).to receive(:release)
-    expect(van).to receive(:dock).with working_bike
-    van.transfer(garage.available_bikes, from: garage)
+    expect(holder).to receive(:dock).with working_bike
+    holder.transfer(garage.available_bikes, from: garage)
   end
 
 end
