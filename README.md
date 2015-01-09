@@ -16,7 +16,7 @@ Week 1 Project at Makers
 
 ## Collaborators
 
-This week I paired with the lovely Emily Sas, from whome I learned a great deal. 
+This week I paired with the lovely Emily Sas, from whom I learned a great deal. 
 We managed to finish the project in the allotted 3 days, which is always a minor Makers Academy miracle! 
 
 - Emily Sas (https://github.com/emilysas)
