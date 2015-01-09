@@ -34,6 +34,6 @@ moved beyond the idea that a computer program is only useful if it sings '100 Bo
 or if you can click on some cat picture from you web browser. 
 
 As for Pair Programing, it was, and continues to be, a lesson in humility. Emily is incredibly bright and talented and keeping up with her 
-was at times a challenge. I think we both learned that taking a quick, five minute break-away session to discuss what is and is not working 
+was, at times, a challenge. I think we both learned that taking a quick, five minute break-away session to discuss what is and is not working 
 in your partnership is worth hours of hammering away at a program ineffectively. Thanks for the good times Emily!
 
