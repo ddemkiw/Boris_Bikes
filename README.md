@@ -12,7 +12,7 @@ This is a small program that mimics the management of Boris Bikes in London
 
 ## Context
 
-Week 1 Project at Makers
+Week 1 Project at Makers Academy
 
 ## Collaborators
 
